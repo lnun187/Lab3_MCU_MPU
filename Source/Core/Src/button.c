@@ -48,7 +48,7 @@ void buttonReading() {
 int isButtonPressed(unsigned int index) {
 	if (index >= N0_OF_BUTTONS)
 		return 0;
-	return (buttonBuffer[index] == BUTTON_IS_PRESSED && counterForButtonPress1s[index] < 50);
+	return (buttonBuffer[index] == BUTTON_IS_PRESSED && counterForButtonPress1s[index] < 30);
 }
 int isButtonPressed1s(unsigned int index) {
 	if (index >= N0_OF_BUTTONS)
