@@ -1,0 +1,3 @@
+fsmAutomatic.c:14:6:initAutomatic	8	static
+fsmAutomatic.c:25:6:afterModify	8	static
+fsmAutomatic.c:33:6:automaticRun	8	static

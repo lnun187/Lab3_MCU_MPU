@@ -1,0 +1,11 @@
+ledTraffic.c:13:6:display7SEG	16	static
+ledTraffic.c:110:6:displayTime	16	static
+ledTraffic.c:172:6:greenA	8	static
+ledTraffic.c:178:6:amberA	8	static
+ledTraffic.c:183:6:redA	8	static
+ledTraffic.c:189:6:greenB	8	static
+ledTraffic.c:194:6:amberB	8	static
+ledTraffic.c:199:6:redB	8	static
+ledTraffic.c:204:6:greenBlinky	8	static
+ledTraffic.c:212:6:amberBlinky	8	static
+ledTraffic.c:220:6:redBlinky	8	static
