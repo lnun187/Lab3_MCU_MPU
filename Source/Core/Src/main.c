@@ -22,7 +22,11 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "blinkyLed.h"
+#include "ledTraffic.h"
+#include "button.h"
+#include "fsmAutomatic.h"
+#include "fsmModify.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -90,7 +94,7 @@ int main(void)
   MX_GPIO_Init();
   /* USER CODE BEGIN 2 */
   int mode = 0;
-  setTimer(2, 250);
+//  setTimer(2, 250);
   initAutomatic();
   HAL_TIM_Base_Start_IT(&htim2);
   /* USER CODE END 2 */
@@ -99,9 +103,6 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	  if(isButtonPressed(0) == 1){
-		  testLed();
-	  }
 	  switch(mode){
 		  case 0:
 			  automaticRun();
@@ -109,6 +110,7 @@ int main(void)
 				  timeTemp = timeRed;
 				  mode = 1;
 				  setTimer(0, 500);
+				  testLed();
 			  }
 			  break;
 		  case 1:
@@ -117,6 +119,7 @@ int main(void)
 				  timeTemp = timeAmber;
 				  mode = 2;
 				  setTimer(0, 500);
+				  testLed();
 			  }
 			  break;
 		  case 2:
@@ -125,6 +128,7 @@ int main(void)
 				  timeTemp = timeGreen;
 				  mode = 3;
 				  setTimer(0, 500);
+				  testLed();
 			  }
 			  break;
 		  case 3:
@@ -132,34 +136,14 @@ int main(void)
 			  if(isButtonPressed(0)){
 				  mode = 0;
 				  afterModify();
+				  testLed();
 			  }
 			  break;
 		  default:
 			  mode = 0;
+			  afterModify();
 			  break;
 	  }
-//	  switch(count){
-//	  case 1:
-//		  greenRed();
-//		  count = 2;
-//		  break;
-//	  case 2:
-//		  amberRed();
-//		  count = 3;
-//		  break;
-//	  case 3:
-//		  redGreen();
-//		  count = 4;
-//		  break;
-//	  case 4:
-//		  redAmber();
-//		  count = 1;
-//		  break;
-//	  default:
-//		  count = 1;
-//		  break;
-//	  }
-	  HAL_Delay(200);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -299,7 +283,7 @@ static void MX_GPIO_Init(void)
 
 /* USER CODE BEGIN 4 */
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
-	timeRun();
+	timerRun();
 	if(htim->Instance == TIM2){
 		buttonReading();
 	}

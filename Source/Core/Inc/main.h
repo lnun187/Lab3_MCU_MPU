@@ -33,11 +33,7 @@ extern "C" {
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "global.h"
-#include "blinkyLed.h"
-#include "ledTraffic.h"
-#include "button.h"
 #include "softwareTimer.h"
-#include "fsmAutomatic.h"
 /* USER CODE END Includes */
 
 /* Exported types ------------------------------------------------------------*/

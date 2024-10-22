@@ -12,6 +12,7 @@
 #include "button.h"
 #include "ledTraffic.h"
 #include "global.h"
+
 void modifyGreen();
 void modifyAmber();
 void modifyRed();

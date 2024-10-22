@@ -9,7 +9,7 @@
 #define INC_LEDTRAFFIC_H_
 
 #include "main.h"
-#define TIMEDISPLAY 125
+#define TIMEDISPLAY 250
 void display7SEG(int num);
 void displayTime(int trafficA, int trafficB);
 void greenA();

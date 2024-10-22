@@ -31,6 +31,7 @@ void afterModify(){
 	setTimer(1, 1000);
 }
 void automaticRun() {
+	displayTime(countA, countB);
 	switch (stateA) {
 		case GREEN:
 				greenA();
@@ -111,5 +112,4 @@ void automaticRun() {
 			setTimer(1, 1000);
 			break;
 	}
-	displayTime(countA, countB);
 }
