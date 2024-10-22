@@ -12,9 +12,9 @@ int stateB;
 int countA;
 int countB;
 void initAutomatic() {
-	timeGreen = 12;
-	timeAmber = 5;
-	timeRed = 23;
+	timeGreen = 3;
+	timeAmber = 2;
+	timeRed = 5;
 	stateA = RED;
 	countA = timeRed;
 	stateB = GREEN;

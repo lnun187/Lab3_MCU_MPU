@@ -336,17 +336,17 @@ int countB;
 void initAutomatic() {
  80002ec:	b580      	push	{r7, lr}
  80002ee:	af00      	add	r7, sp, #0
-	timeGreen = 12;
+	timeGreen = 3;
  80002f0:	4b11      	ldr	r3, [pc, #68]	; (8000338 <initAutomatic+0x4c>)
- 80002f2:	220c      	movs	r2, #12
+ 80002f2:	2203      	movs	r2, #3
  80002f4:	601a      	str	r2, [r3, #0]
-	timeAmber = 5;
+	timeAmber = 2;
  80002f6:	4b11      	ldr	r3, [pc, #68]	; (800033c <initAutomatic+0x50>)
- 80002f8:	2205      	movs	r2, #5
+ 80002f8:	2202      	movs	r2, #2
  80002fa:	601a      	str	r2, [r3, #0]
-	timeRed = 23;
+	timeRed = 5;
  80002fc:	4b10      	ldr	r3, [pc, #64]	; (8000340 <initAutomatic+0x54>)
- 80002fe:	2217      	movs	r2, #23
+ 80002fe:	2205      	movs	r2, #5
  8000300:	601a      	str	r2, [r3, #0]
 	stateA = RED;
  8000302:	4b10      	ldr	r3, [pc, #64]	; (8000344 <initAutomatic+0x58>)
