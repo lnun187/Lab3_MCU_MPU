@@ -14,11 +14,14 @@ void modifyGreen(){
 	}
 	displayTime(4, timeTemp);
 	if(isButtonPressed1s(1)) {
-		timeTemp = (timeTemp + 1) % 100;
+		timeTemp = (timeTemp + 1) % timeRed;
 		setTimer(3, 500);
 	}
-	if(isButtonPressed(1)) timeTemp = (timeTemp + 1) % 100;
-	if(isButtonPressed(2)) timeGreen = timeTemp;
+	if(isButtonPressed(1)) timeTemp = (timeTemp + 1) % timeRed;
+	if(isButtonPressed(2)) {
+		timeGreen = timeTemp;
+		timeAmber = timeRed - timeGreen;
+	}
 }
 void modifyAmber(){
 	if(isTimerExpired(0)){
@@ -27,11 +30,14 @@ void modifyAmber(){
 	}
 	displayTime(3, timeTemp);
 	if(isButtonPressed1s(1)) {
-		timeTemp = (timeTemp + 1) % 100;
+		timeTemp = (timeTemp + 1) % timeRed;
 		setTimer(3, 500);
 	}
-	if(isButtonPressed(1)) timeTemp = (timeTemp + 1) % 100;
-	if(isButtonPressed(2)) timeAmber = timeTemp;
+	if(isButtonPressed(1)) timeTemp = (timeTemp + 1) % timeRed;
+	if(isButtonPressed(2)) {
+		timeAmber = timeTemp;
+		timeGreen = timeRed - timeAmber;
+	}
 }
 void modifyRed(){
 	if(isTimerExpired(0)){
@@ -44,6 +50,10 @@ void modifyRed(){
 		setTimer(3, 500);
 	}
 	if(isButtonPressed(1)) timeTemp = (timeTemp + 1) % 100;
-	if(isButtonPressed(2)) timeRed = timeTemp;
+	if(isButtonPressed(2)) {
+		timeRed = timeTemp;
+		timeGreen = timeGreen % timeRed;
+		timeAmber = timeRed - timeGreen;
+	}
 }
 

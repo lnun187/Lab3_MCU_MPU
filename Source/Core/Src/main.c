@@ -60,6 +60,50 @@ static void MX_GPIO_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+int mode = 0;
+void fsm(){
+	switch(mode){
+	  case 0:
+		  automaticRun();
+		  if(isButtonPressed(0)){
+			  timeTemp = timeRed;
+			  mode = 1;
+			  setTimer(0, 500);
+			  testLed();
+		  }
+		  break;
+	  case 1:
+		  modifyRed();
+		  if(isButtonPressed(0)){
+			  timeTemp = timeAmber;
+			  mode = 2;
+			  setTimer(0, 500);
+			  testLed();
+		  }
+		  break;
+	  case 2:
+		  modifyAmber();
+		  if(isButtonPressed(0)){
+			  timeTemp = timeGreen;
+			  mode = 3;
+			  setTimer(0, 500);
+			  testLed();
+		  }
+		  break;
+	  case 3:
+		  modifyGreen();
+		  if(isButtonPressed(0)){
+			  mode = 0;
+			  afterModify();
+			  testLed();
+		  }
+		  break;
+	  default:
+		  mode = 0;
+		  afterModify();
+		  break;
+  }
+}
 
 /* USER CODE END 0 */
 
@@ -93,7 +137,7 @@ int main(void)
   MX_TIM2_Init();
   MX_GPIO_Init();
   /* USER CODE BEGIN 2 */
-  int mode = 0;
+
 //  setTimer(2, 250);
   initAutomatic();
   HAL_TIM_Base_Start_IT(&htim2);
@@ -103,47 +147,7 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	  switch(mode){
-		  case 0:
-			  automaticRun();
-			  if(isButtonPressed(0)){
-				  timeTemp = timeRed;
-				  mode = 1;
-				  setTimer(0, 500);
-				  testLed();
-			  }
-			  break;
-		  case 1:
-			  modifyRed();
-			  if(isButtonPressed(0)){
-				  timeTemp = timeAmber;
-				  mode = 2;
-				  setTimer(0, 500);
-				  testLed();
-			  }
-			  break;
-		  case 2:
-			  modifyAmber();
-			  if(isButtonPressed(0)){
-				  timeTemp = timeGreen;
-				  mode = 3;
-				  setTimer(0, 500);
-				  testLed();
-			  }
-			  break;
-		  case 3:
-			  modifyGreen();
-			  if(isButtonPressed(0)){
-				  mode = 0;
-				  afterModify();
-				  testLed();
-			  }
-			  break;
-		  default:
-			  mode = 0;
-			  afterModify();
-			  break;
-	  }
+	  fsm();
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
